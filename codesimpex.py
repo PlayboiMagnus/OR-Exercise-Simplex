@@ -45,11 +45,7 @@ def simplex_method(c, A, b):
             break
         pivot_col = np.argmin(tableau[-1, :-1])
         pivot_column = tableau[:-1, pivot_col]
-        if np.all(pivot_column <= 0):
-            print("The solution is unbounded.")
-            return None
-        with np.errstate(divide='ignore', invalid='ignore'):
-            positive_ratios = np.where(pivot_column > 0, tableau[:-1, -1] / pivot_column, np.inf)
+        positive_ratios = np.where(pivot_column > 0, tableau[:-1, -1] / pivot_column, np.inf)
         pivot_row = np.argmin(positive_ratios)
         basic_vars[pivot_row] = f'var_{pivot_col + 1}'
         pivot_value = tableau[pivot_row, pivot_col]
