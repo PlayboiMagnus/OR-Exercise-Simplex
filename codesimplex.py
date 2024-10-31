@@ -1,3 +1,5 @@
+
+#If you choose to use examplebook.csv, make sure that it's directory is associated to codesimplex.py so that the program can access it.
 import numpy as np
 import pandas as pd
 from ortools.linear_solver import pywraplp
